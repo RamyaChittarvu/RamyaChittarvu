@@ -22,15 +22,15 @@ public class Author {
     @ManyToMany(mappedBy = "authors") //mapped by author properties of the book
 
     private Set<Book> books= new HashSet<>();
-    private Set<Publisher> publishers= new HashSet<>();
+    //private Set<Publisher> publishers= new HashSet<>();
 
-    public Set<Publisher> getPublishers() {
+ /*   public Set<Publisher> getPublishers() {
         return publishers;
     }
 
     public void setPublishers(Set<Publisher> publishers) {
         this.publishers = publishers;
-    }
+    }*/
 
     public Set<Book> getBooks() {
         return books;

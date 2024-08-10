@@ -34,14 +34,9 @@ public class BootStrapData implements CommandLineRunner {
         ddd.setTitle("Domain Drive Design");
         ddd.setIsbn("123456");
 
-        Publisher publish= new Publisher();
-        publish.setPublisherName("SpringGuru");
-        publish.setAddress("Lakeshore");
-        publish.setCity("Toronto");
-        publish.setState("Ontario");
-        publish.setZip("M2VKC6");
 
-        Publisher publisherSaved= publisherRepository.save(publish);
+
+       // Publisher publisherSaved= publisherRepository.save(publish);
 
         Author ericSaved= authorRepository.save(eric);
         Book dddSaved = bookRepository.save(ddd);
@@ -70,6 +65,13 @@ public class BootStrapData implements CommandLineRunner {
 
         System.out.println("Author count: "+ authorRepository.count());
         System.out.println("Book count: "+ bookRepository.count());
+
+
+       Publisher publish= new Publisher();
+        publish.setPublisherName("SpringGuru");
+        publish.setAddress("Lakeshore");
+        publisherRepository.save(publish);
+
 
         System.out.println("Publisher count: "+ publisherRepository.count());
 
