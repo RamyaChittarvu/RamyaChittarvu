@@ -16,26 +16,11 @@ public class Publisher {
     private String state;
     private String Zip;
 
-   // @ManyToMany(mappedBy = "publishers")
+   @OneToMany(mappedBy = "publisher")
 
-    //private Set<Book> books= new HashSet<>();
-    //private Set<Author> authors= new HashSet<>();
+   private Set<Book> books= new HashSet<>();
 
-   /* public Set<Book> getBooks() {
-        return books;
-    }
 
-    public void setBooks(Set<Book> books) {
-        this.books = books;
-    }
-
-    public Set<Author> getAuthors() {
-        return authors;
-    }
-
-    public void setAuthors(Set<Author> authors) {
-        this.authors = authors;
-    }*/
 
     public Long getId() {
         return id;
