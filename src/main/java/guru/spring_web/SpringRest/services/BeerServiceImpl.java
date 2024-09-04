@@ -3,7 +3,9 @@ package guru.spring_web.SpringRest.services;
 import lombok.extern.slf4j.Slf4j;
 import guru.spring_web.SpringRest.model.Beer;
 import guru.spring_web.SpringRest.model.BeerStyle;
+import org.apache.catalina.util.StringUtil;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -96,6 +98,53 @@ public class BeerServiceImpl implements BeerService {
        beerMap.put(beerSaved.getId(),beerSaved);
 
         return beerSaved;
+    }
+
+    @Override
+    public void updateBeerByID(UUID beerID, Beer beer) {
+
+        Beer existing = beerMap.get(beerID);
+        existing.setBeerName(beer.getBeerName());
+        existing.setPrice(beer.getPrice());
+        existing.setUpc(beer.getUpc());
+        existing.setQuantityOnHand(beer.getQuantityOnHand());
+
+beerMap.put(existing.getId(),existing);
+    }
+
+    @Override
+    public void DeleteBeerByID(UUID beerId) {
+beerMap.remove(beerId);
+    }
+
+    @Override
+    public void updateBeerPatchByID(UUID beerId, Beer beer) {
+        Beer existing = beerMap.get(beerId);
+
+        if(StringUtils.hasText(beer.getBeerName()))
+        {
+            existing.setBeerName(beer.getBeerName());
+        }
+
+
+        if(beer.getBeerStyle()!=null)
+        {
+            existing.setBeerStyle(beer.getBeerStyle());
+        }
+
+        if(beer.getPrice()!=null)
+        {
+            existing.setPrice(beer.getPrice());
+        }
+        if(beer.getQuantityOnHand()!=null)
+        {
+            existing.setQuantityOnHand(beer.getQuantityOnHand());
+        }
+        if(StringUtils.hasText(beer.getUpc()))
+        {
+            existing.setUpc(beer.getUpc());
+        }
+
     }
 
 }
