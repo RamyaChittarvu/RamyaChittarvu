@@ -41,6 +41,18 @@ public class BeerController {
 
     }
 
+/*
+@ExceptionHandler(NotFoundException.class)
+    public ResponseEntity handleNotfoundException()
+    {
+
+        System.out.println("in not found exception");
+        return ResponseEntity.notFound().build();
+    }
+*/
+
+
+
     @PutMapping("{beerId}")
     public ResponseEntity updateBeerByID(@PathVariable("beerId")UUID beerId,@RequestBody Beer beer)
     {
